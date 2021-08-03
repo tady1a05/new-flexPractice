@@ -77,16 +77,16 @@
 
             carousell.addEventListener("touchend", function () {
                 var img_width = carousell.children[0].offsetWidth;
-                console.log(current_x);
-                if (Math.abs(current_x) % img_width <= img_width / 2) {
-                    current_index = Math.floor(Math.abs(current_x) / img_width) - 1;
-                } else {
+
+                if (Math.abs((-img_width * (current_index + 1))) - Math.abs(current_x) <= -50) {
                     current_index = Math.ceil(Math.abs(current_x) / img_width) - 1;
+                } else if (Math.abs((-img_width * (current_index + 1))) - Math.abs(current_x) >= 50) {
+                    current_index = Math.floor(Math.abs(current_x) / img_width) - 1;
                 }
-                console.log(current_index);
+
                 carousell.style.transition = "all .3s";
                 carousell.style.transform = "translateX(" + (-img_width * (current_index + 1)) + "px)";
-
+                current_x = (-img_width * (current_index + 1));
                 timer = setInterval(next, 2000);
             });
 
