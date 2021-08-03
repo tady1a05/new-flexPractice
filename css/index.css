@@ -1,0 +1,327 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    font-size: 14px;
+}
+body{
+    width: 100%;
+    max-width: 540px;
+    min-width: 320px;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #f2f2f2;
+}
+
+.navgationBar{
+    position: fixed;
+    display: flex;
+    top: 0;
+    width: 100%;
+    height: 44px;
+    line-height: 44px;
+    max-width: 540px;
+    min-width: 320px;
+    border-top: 1px solid #cccccc;
+    border-bottom: 1px solid #cccccc;
+    background-color: white;
+    z-index: 1;
+}
+
+.navgationBa-left{
+    flex: 1;
+    height: 100%;
+    text-align: center;
+}
+
+.navgationBa-right{
+    width: 49px;
+    height: 100%;
+    background-image: url(../backgroundImage/sprite.png);
+    background-repeat: no-repeat;
+    background-size: 146px;
+    background-position: -74px -273px; 
+    text-align: center;
+    color: #2eaae0;
+}
+
+.navgationBa-right>span{
+    display: inline-block;
+    margin-top: 16px;
+}
+
+.navgationBa-left>input{
+    border: 1px solid #cccccc;
+    box-shadow: 1px 3px 5px #cccccc;
+    border-radius: 7px;
+    outline: none;
+    height: 26px;
+    width: 98%;
+    padding-left: 6%;
+}
+
+.searchIcon{
+    position: absolute;
+    background-image: url(../backgroundImage/sprite.png);
+    background-repeat: no-repeat;
+    width: 18px;
+    height: 18px;
+    background-size: 120px;
+    background-position: -68px -322px;
+    left: 1.8%;
+    top: 12px;
+}
+
+.banner{
+    position: relative;
+    margin-top: 44px;
+    overflow: hidden;
+}
+
+.carousell{
+    overflow: auto;
+    width: 500%;
+    list-style: none;
+    transform: translateX(-20%);
+}
+
+.carousell>li{
+    width: 20%;
+    float: left;
+}
+
+.pagination{
+    position: absolute;
+    right: 5px;
+    bottom: 5px;
+}
+
+.pagination>li{
+    display: inline-block;
+    margin-right: 1px;
+    width: 5px;
+    height: 5px;
+    border-radius: 3px;
+    background-color: white;
+    transition: all .3s;
+}
+
+.pagination>.current{
+    width: 15px;
+}
+
+.quickMenu-scene{
+    display: flex;
+    height: 64px;
+    background-color: #ffffff;
+    border-radius: 8px;
+}
+
+.quickMenu-scene-items-bg{
+    width: 32px;
+    height: 32px;
+    background-image: url(../backgroundImage/localnav_bg.png);
+    background-repeat: no-repeat;
+    background-size: 32px;
+}
+
+.quickMenu-scene-items{
+    display: flex;
+    flex:1;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+div[class^="quickMenu-scene-items-bg"]{
+    background-image: url(../backgroundImage/localnav_bg.png);
+    background-repeat: no-repeat;
+    background-size: 32px;
+    width: 32px;
+    height: 32px;
+    justify-content: center;
+}
+
+.quickMenu-scene-items-bg1{
+    background-position-y: 0px;
+}
+
+.quickMenu-scene-items-bg2{
+    background-position-y: -32px;
+}
+
+.quickMenu-scene-items-bg3{
+    background-position-y: -64px;
+}
+
+.quickMenu-scene-items-bg4{
+    background-position-y: -96px;
+}
+
+.quickMenu-scene-items-bg5{
+    background-position-y: -128px;
+}
+
+.hotel{
+    margin-top: 3px;
+}
+
+.hotel-menu{
+    display: flex;
+    height: 88px;
+    color: white;
+    text-align: center;
+}
+
+.hotel-menu1{
+    overflow: hidden;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    background: -webkit-linear-gradient(left,#fa5a55,#fa994d);
+}
+
+.hotel1-item{
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+}
+
+.hotel1-item:nth-child(n+2){
+    border-left: solid 1px #ffffff;
+}
+
+.hotel1-item:nth-child(1){
+    background-image: url(../backgroundImage/hotel.png);
+    background-repeat: no-repeat;
+    background-position: center bottom;
+    background-size: 124px;
+}
+
+.hotel1-item-item:nth-child(1){
+    border-bottom: solid 1px #ffffff;
+}
+
+.hotel1-item-item{
+    display: flex;
+    flex: 1;
+    justify-content: center;
+    align-items: center;
+}
+
+.hotel1-item>span{
+    margin-top: 11px;
+}
+
+.hotel-menu2{
+    background: -webkit-linear-gradient(left,#4b90ed,#53bced);
+    margin-top: 3px;
+}
+
+.hotel-menu3{
+    background: -webkit-linear-gradient(left,#34c2a9,#6cd559);
+    margin-top: 3px;
+    overflow: hidden;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+.phonebill{
+    margin-top: 3px;
+    width: 100%;
+    height: 116px;
+    display: flex;
+    flex-wrap: wrap;
+    background-color: #ffffff;
+    overflow: hidden;
+    border-radius: 8px;
+}
+
+.phonebill-item{
+    display: flex;
+    flex: 20%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.phonebill-item-item{
+    width: 34px;
+    height: 34px;
+    background-image: url(../backgroundImage/subnav-bg.png);
+    background-repeat: no-repeat;
+    background-size: 34px;
+}
+
+.activity{
+    display: flex;
+    margin-top: 4px;
+    width: 100%;
+    flex-wrap: wrap;
+}
+
+.activityMenu{
+    display: flex;
+    height: 62px;
+    flex: 100%;
+    box-sizing: border-box;
+    border-top: 1px solid #bbbbbb;
+    border-bottom: 1px solid #bbbbbb;
+    background-color: #ffffff;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.activity1{
+    background-image: url(../backgroundImage/hot.png);
+    background-repeat: no-repeat;
+    width: 74px;
+    height: 20px;
+    background-size: 80px;
+    background-position: 0px -18px;
+    margin-left: 5px;
+}
+
+.activity2{
+  display: flex;
+  width: 114px;
+  height: 27px;
+  background: -webkit-linear-gradient(left,#ff5c96,#ff78cb);
+  margin-right: 5px;
+  border-radius: 16px;
+  color: white;
+  justify-content: center;
+  align-items: center;
+}
+
+.activity2:after{
+    content: "";
+    width: 7px;
+    height: 7px;
+    box-sizing: border-box;
+    border-bottom: 2px solid #ffffff;
+    border-right: 2px solid #ffffff;
+    transform: rotate(-45deg);
+}
+
+.activityContent{
+    display: flex;
+    flex: 100%;
+    flex-wrap: wrap;
+}
+
+div[class^="go"]{
+    width: 50%;
+    box-sizing: border-box;
+    border-bottom: 1px solid #eeeeee;
+}
+
+img{
+    width: 100%;
+    vertical-align: bottom;
+}
+
+div[class^="go"]:nth-child(2n+1){
+    width: 50%;
+    border-right: 1px solid #eeeeee;
+}
+
+

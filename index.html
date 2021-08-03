@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0, user-scalable=0">
+    <link rel="stylesheet" href="css/index.css">
+    <title>Document</title>
+    <script>
+        window.addEventListener("load", function () {
+            /*0% -20% -40% -60% -80%*/
+            var carousell = document.querySelector(".carousell");
+            var pagination = document.querySelector(".pagination");
+
+            var current_index = 0;
+            var current_x = -carousell.children[0].offsetWidth;
+            var current_cursor_x = 0;
+
+            function refreshPagination(pagination, target) {
+                for (var i = 0; i < pagination.children.length; i++) {
+                    pagination.children[i].className = "";
+                }
+
+                pagination.children[target].className = "current";
+            }
+
+            function next() {
+                var img_width = carousell.children[0].offsetWidth;
+
+                current_index++;
+
+                carousell.style.transition = "all .3s";
+                carousell.style.transform = "translateX(" + (-img_width * (current_index + 1)) + "px)";
+                current_x = -img_width * (current_index + 1);
+            }
+
+            function prev() {
+                var img_width = carousell.children[0].offsetWidth;
+
+                current_index--;
+
+                carousell.style.transition = "all .3s";
+                carousell.style.transform = "translateX(" + (-img_width * (current_index + 1)) + "px)";
+                current_x = -img_width * (current_index + 1);
+            }
+
+            timer = setInterval(next, 2000);
+
+            carousell.addEventListener("transitionend", function () {
+                var img_width = carousell.children[0].offsetWidth;
+
+                if (current_index >= 3) {
+                    current_index = 0;
+                    carousell.style.transition = "none";
+                    carousell.style.transform = "translateX(" + (-img_width * (current_index + 1)) + "px)";
+                    current_x = -img_width * (current_index + 1);
+                }
+
+                if (current_index < 0) {
+                    current_index = 2;
+                    carousell.style.transition = "none";
+                    carousell.style.transform = "translateX(" + (-img_width * (current_index + 1)) + "px)";
+                    console.log(carousell.style.transform);
+                    current_x = -img_width * (current_index + 1);
+                }
+
+                refreshPagination(pagination, current_index);
+
+            })
+
+            carousell.addEventListener("touchstart", function (e) {
+                current_cursor_x = e.targetTouches[0].pageX;
+                clearInterval(timer);
+            });
+
+            carousell.addEventListener("touchend", function () {
+                var img_width = carousell.children[0].offsetWidth;
+                console.log(current_x);
+                if (Math.abs(current_x) % img_width <= img_width / 2) {
+                    current_index = Math.floor(Math.abs(current_x) / img_width) - 1;
+                } else {
+                    current_index = Math.ceil(Math.abs(current_x) / img_width) - 1;
+                }
+                console.log(current_index);
+                carousell.style.transition = "all .3s";
+                carousell.style.transform = "translateX(" + (-img_width * (current_index + 1)) + "px)";
+
+                timer = setInterval(next, 2000);
+            });
+
+            carousell.addEventListener("touchmove", function (e) {
+                carousell.style.transform = "translateX(" + (e.targetTouches[0].pageX - current_cursor_x + current_x) + "px)";
+                current_x = e.targetTouches[0].pageX - current_cursor_x + current_x;
+                current_cursor_x = e.targetTouches[0].pageX;
+            });
+        })
+    </script>
+</head>
+
+<body>
+    <div class="navgationBar">
+        <div class="navgationBa-left">
+            <input placeholder="搜索:目的地/酒店/景點/航班號" type="search" />
+            <div class="searchIcon"></div>
+        </div>
+        <div class="navgationBa-right"><span>我的</span></div>
+    </div>
+    <div class="banner">
+        <ul class="carousell">
+            <li><img src="image/focus3.jpg" /></li>
+            <li><img src="image/focus.jpg" /></li>
+            <li><img src="image/focus2.jpg" /></li>
+            <li><img src="image/focus3.jpg" /></li>
+            <li><img src="image/focus.jpg" /></li>
+        </ul>
+        <ul class="pagination">
+            <li class="current"></li>
+            <li></li>
+            <li></li>
+        </ul>
+    </div>
+    <div class="quickMenu-scene">
+        <div class="quickMenu-scene-items">
+            <div class="quickMenu-scene-items-bg1"></div>
+            <div>場景.遊戲</div>
+        </div>
+        <div class="quickMenu-scene-items">
+            <div class="quickMenu-scene-items-bg2"></div>
+            <div>場景.遊戲</div>
+        </div>
+        <div class="quickMenu-scene-items">
+            <div class="quickMenu-scene-items-bg3"></div>
+            <div>場景.遊戲</div>
+        </div>
+        <div class="quickMenu-scene-items">
+            <div class="quickMenu-scene-items-bg4"></div>
+            <div>場景.遊戲</div>
+        </div>
+        <div class="quickMenu-scene-items">
+            <div class="quickMenu-scene-items-bg5"></div>
+            <div>場景.遊戲</div>
+        </div>
+    </div>
+    <div class="hotel">
+        <div class="hotel-menu hotel-menu1">
+            <div class="hotel1-item">
+                <span>海外酒店</span>
+            </div>
+            <div class="hotel1-item">
+                <div class="hotel1-item-item">
+                    <span>海外酒店</span>
+                </div>
+                <div class="hotel1-item-item">
+                    <span>海外酒店</span>
+                </div>
+            </div>
+            <div class="hotel1-item">
+                <div class="hotel1-item-item">
+                    <span>海外酒店</span>
+                </div>
+                <div class="hotel1-item-item">
+                    <span>海外酒店</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="hotel-menu hotel-menu2">
+            <div class="hotel1-item hotel2-item">
+                <span>海外酒店</span>
+            </div>
+            <div class="hotel1-item hotel2-item">
+                <div class="hotel1-item-item hotel2-item-item">
+                    <span>海外酒店</span>
+                </div>
+                <div class="hotel1-item-item hotel2-item-item">
+                    <span>海外酒店</span>
+                </div>
+            </div>
+            <div class="hotel1-item hotel2-item">
+                <div class="hotel1-item-item hotel2-item-item">
+                    <span>海外酒店</span>
+                </div>
+                <div class="hotel1-item-item hotel2-item-item">
+                    <span>海外酒店</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="hotel-menu hotel-menu3">
+            <div class="hotel1-item hotel3-item">
+                <span>海外酒店</span>
+            </div>
+            <div class="hotel1-item hotel3-item">
+                <div class="hotel1-item-item hotel3-item-item">
+                    <span>海外酒店</span>
+                </div>
+                <div class="hotel1-item-item hotel3-item-item">
+                    <span>海外酒店</span>
+                </div>
+            </div>
+            <div class="hotel1-item hotel3-item">
+                <div class="hotel1-item-item hotel3-item-item">
+                    <span>海外酒店</span>
+                </div>
+                <div class="hotel1-item-item hotel3-item-item">
+                    <span>海外酒店</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="phonebill">
+        <div class="phonebill-item">
+            <div class="phonebill-item-item"></div>
+            <span>電話費</span>
+        </div>
+        <div class="phonebill-item">
+            <div class="phonebill-item-item"></div>
+            <span>電話費</span>
+        </div>
+        <div class="phonebill-item">
+            <div class="phonebill-item-item"></div>
+            <span>電話費</span>
+        </div>
+        <div class="phonebill-item">
+            <div class="phonebill-item-item"></div>
+            <span>電話費</span>
+        </div>
+        <div class="phonebill-item">
+            <div class="phonebill-item-item"></div>
+            <span>電話費</span>
+        </div>
+        <div class="phonebill-item">
+            <div class="phonebill-item-item"></div>
+            <span>電話費</span>
+        </div>
+        <div class="phonebill-item">
+            <div class="phonebill-item-item"></div>
+            <span>電話費</span>
+        </div>
+        <div class="phonebill-item">
+            <div class="phonebill-item-item"></div>
+            <span>電話費</span>
+        </div>
+        <div class="phonebill-item">
+            <div class="phonebill-item-item"></div>
+            <span>電話費</span>
+        </div>
+        <div class="phonebill-item">
+            <div class="phonebill-item-item"></div>
+            <span>電話費</span>
+        </div>
+    </div>
+    <div class="activity">
+        <div class="activityMenu">
+            <div class="activity1"></div>
+            <div class="activity2">獲得更多折扣</div>
+        </div>
+        <div class="activityContent">
+            <div class="go1">
+                <img src="image/pic1.jpg" />
+            </div>
+            <div class="go2">
+                <img src="image/pic2.jpg" />
+            </div>
+            <div class="go3">
+                <img src="image/pic3.jpg" />
+            </div>
+            <div class="go4">
+                <img src="image/pic4.jpg" />
+            </div>
+            <div class="go5">
+                <img src="image/pic5.jpg" />
+            </div>
+            <div class="go6">
+                <img src="image/pic6.jpg" />
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
