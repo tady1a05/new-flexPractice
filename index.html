@@ -92,6 +92,20 @@
                 current_x = e.targetTouches[0].pageX - current_cursor_x + current_x;
                 current_cursor_x = e.targetTouches[0].pageX;
             });
+
+            window.addEventListener("scroll",function(){
+                console.log(document.documentElement.scrollTop);
+
+                if(document.documentElement.scrollTop>=284){
+                    document.querySelector(".backToTop").style.display = "block";
+                }else{
+                    document.querySelector(".backToTop").style.display = "none";
+                }
+            })
+
+            document.querySelector(".backToTop").addEventListener("click",function(){
+                document.documentElement.scrollTop = 0;
+            })
         })
     </script>
 </head>
@@ -274,6 +288,10 @@
                 <img src="image/pic6.jpg" />
             </div>
         </div>
+    </div>
+
+    <div class="backToTop">
+        <img src="image/back.png"/>
     </div>
 </body>
 
