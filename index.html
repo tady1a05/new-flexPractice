@@ -18,12 +18,10 @@
             var current_x = -carousell.children[0].offsetWidth;
             var current_cursor_x = 0;
 
-            function refreshPagination(pagination, target) {
-                for (var i = 0; i < pagination.children.length; i++) {
-                    pagination.children[i].className = "";
-                }
+            function refreshPagination(target) {
+                document.querySelector(".current").classList.remove("current");
 
-                pagination.children[target].className = "current";
+                pagination.children[target].classList.add("current");
             }
 
             function next() {
@@ -66,8 +64,7 @@
                     current_x = -img_width * (current_index + 1);
                 }
 
-                refreshPagination(pagination, current_index);
-
+                refreshPagination(current_index);
             })
 
             carousell.addEventListener("touchstart", function (e) {
