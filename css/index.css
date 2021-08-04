@@ -330,5 +330,6 @@ div[class^="go"]:nth-child(2n+1){
     position: fixed;
     right: 0;
     bottom: 10px;
+    transition: all .5s;
 }
 
