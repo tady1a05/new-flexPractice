@@ -95,9 +95,7 @@
             });
 
             window.addEventListener("scroll",function(){
-                console.log(document.documentElement.scrollTop);
-
-                if(document.documentElement.scrollTop>=document.documentElement.scrollHeight*0.25){
+                if(document.documentElement.scrollTop>=document.querySelector(".hotel").offsetTop){
                     document.querySelector(".backToTop").style.display = "block";
                 }else{
                     document.querySelector(".backToTop").style.display = "none";
